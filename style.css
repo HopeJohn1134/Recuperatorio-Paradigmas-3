@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: grid;
+  grid-template-areas:
+    "header menu"
+    "hero hero"
+    "main image"
+    "main extra"
+    "banner banner";
+  grid-template-columns: 2fr 1fr;/*la primer columna izquiera es 2/3 del ancho*/
+  grid-template-rows: auto auto 1fr 1fr auto;/*menu hero (image extra,mismo espacio) banner*/
+  
+  /*PREGUNTARLE AL PROFE*/
+  min-height: 100vh;/*acegura que se use la pantalla entera, no se porque hace falta*/
+
+  gap: 0px;/*me parece que queda mejor con 5 o 8 px de espacio*/
+}
+
+/*propiedaddes de las clases*/
+.header{
+    grid-area: header;
+    background: #10152a;
+    color: white; /*Esta es la forma correcta de cambiar el color del texto????????*/
+    padding:20px;
+}
+.menu{
+    grid-area: menu;
+    background:#f03b4f;
+    color: white;
+    padding: 20px;
+}
+.hero{
+    grid-area: hero;
+    background: #4d87c5;
+    padding: 20px;
+}
+.main{
+    grid-area: main;
+    background: #22354e;
+    padding:20px;}
+.image{
+    grid-area:image;
+    background: #c2e4e6;
+    padding:20px;
+}
+.extra{
+    grid-area:extra;
+    background: #4ebc99;
+    padding:20px;
+}
+.banner{
+    grid-area:  banner;
+    background: #fed16a;
+    color: white;
+    padding: 20px;
+}
+
+
+@media (max-width: 1000px){/*Formato tablet entre el 720px y 1000px*/
+  body {
+    grid-template-areas:
+      "header header"
+      "hero hero"
+      "menu main"
+      "menu banner"
+      "menu extra"
+      "menu image";
+    grid-template-columns: 1fr 2fr;/*la primer columna es 1/3 del ancho*/
+    grid-template-rows: auto auto auto auto auto auto;/* con esto funcionó -- consultar si aquí se cambia el tamaño como en las comlumnas*/
+  }
+}
+@media (max-width: 720px) {/*menos de 720px de ancho ya cambia a Mobile*/
+  body {
+    grid-template-areas:
+      "header"
+      "menu"
+      "hero"
+      "main"
+      "banner"
+      "extra"
+      "image";
+    grid-template-columns: 1fr; 
+  }
+}
